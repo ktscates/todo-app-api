@@ -14,7 +14,6 @@ app.get("/", (req, res) => {
 // Get all todos
 app.get("/todos", (req, res) => {
   console.log("Received GET request for /todos");
-
   res.json(todos);
 });
 
