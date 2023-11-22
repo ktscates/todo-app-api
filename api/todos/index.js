@@ -12,13 +12,13 @@ app.get("/", (req, res) => {
 });
 
 // Get all todos
-app.get("/todos", (req, res) => {
+app.get("/api/todos", (req, res) => {
   console.log("Received GET request for /todos");
   res.json(todos);
 });
 
 // Get a specific todo
-app.get("/todos/:id", (req, res) => {
+app.get("/api/todos/:id", (req, res) => {
   const id = req.params.id;
   const todo = todos.find((todo) => todo.id === parseInt(id));
   if (!todo) {
@@ -28,7 +28,7 @@ app.get("/todos/:id", (req, res) => {
 });
 
 // Create a new todo
-app.post("/todos", (req, res) => {
+app.post("/api/todos", (req, res) => {
   const { title } = req.body;
   const newTodo = {
     id: todos.length + 1,
@@ -39,7 +39,7 @@ app.post("/todos", (req, res) => {
 });
 
 // Update a todo
-app.put("/todos/:id", (req, res) => {
+app.put("/api/todos/:id", (req, res) => {
   const id = req.params.id;
   const todoIndex = todos.findIndex((todo) => todo.id === parseInt(id));
   if (todoIndex === -1) {
@@ -52,7 +52,7 @@ app.put("/todos/:id", (req, res) => {
 });
 
 // Delete a todo
-app.delete("/todos/:id", (req, res) => {
+app.delete("/api/todos/:id", (req, res) => {
   const id = req.params.id;
   todos = todos.filter((todo) => todo.id !== parseInt(id));
   res.json({ message: "Todo deleted successfully" });
