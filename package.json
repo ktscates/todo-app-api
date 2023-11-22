@@ -17,9 +17,7 @@
   },
   "vercel": {
     "functions": {
-      "api/*": {
-        "source": "/src/index.js"
-      }
+      "src/*": {}
     }
   }
 }
