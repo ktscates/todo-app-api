@@ -7,6 +7,10 @@ app.use(express.json());
 
 let todos = [];
 
+app.get("/", (req, res) => {
+  res.send("Hello World");
+});
+
 // Get all todos
 app.get("/todos", (req, res) => {
   console.log("Received GET request for /todos");
