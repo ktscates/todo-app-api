@@ -4,7 +4,7 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Enable CORS for all routes
-app.use(cors());
+app.use(cors({ origin: "http://localhost:3000" }));
 
 app.use(express.json());
 
@@ -15,6 +15,7 @@ app.get("/", (req, res) => {
 });
 
 // Get all todos
+// Enable CORS for specific route with specific options
 app.get("/api/todos", (req, res) => {
   console.log("Received GET request for /todos");
   res.json(todos);
