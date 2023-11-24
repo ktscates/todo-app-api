@@ -1,4 +1,3 @@
-// index.js
 const express = require("express");
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -29,10 +28,13 @@ app.get("/api/todos/:id", (req, res) => {
 
 // Create a new todo
 app.post("/api/todos", (req, res) => {
-  const { title } = req.body;
+  const { task, status, priority, categories } = req.body;
   const newTodo = {
     id: todos.length + 1,
-    title,
+    task,
+    status,
+    priority,
+    categories,
   };
   todos.push(newTodo);
   res.status(201).json(newTodo);
@@ -46,8 +48,12 @@ app.put("/api/todos/:id", (req, res) => {
     return res.status(404).json({ message: "Todo not found" });
   }
 
-  const { title } = req.body;
-  todos[todoIndex].title = title;
+  const { task, status, priority, categories } = req.body;
+  todos[todoIndex].task = task;
+  todos[todoIndex].status = status;
+  todos[todoIndex].priority = priority;
+  todos[todoIndex].categories = categories;
+
   res.json(todos[todoIndex]);
 });
 
