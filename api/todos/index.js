@@ -52,11 +52,11 @@ app.put("/api/todos/:id", (req, res) => {
     return res.status(404).json({ message: "Todo not found" });
   }
 
-  const { task, status, priority, categories } = req.body;
+  const { task, status, important, createdAt } = req.body;
   todos[todoIndex].task = task;
   todos[todoIndex].status = status;
-  todos[todoIndex].priority = priority;
-  todos[todoIndex].categories = categories;
+  todos[todoIndex].important = important;
+  todos[todoIndex].createdAt = createdAt;
 
   res.json(todos[todoIndex]);
 });
