@@ -91,6 +91,13 @@ app.delete("/api/todos/:id", (req, res) => {
   res.json({ message: "Todo deleted successfully" });
 });
 
+// Delete all todos
+app.delete("/api/todos", (req, res) => {
+  // Clear the todos array to delete all tasks
+  todos = [];
+  res.json({ message: "All todos deleted successfully" });
+});
+
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
