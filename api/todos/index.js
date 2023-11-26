@@ -33,13 +33,12 @@ app.get("/api/todos/:id", (req, res) => {
 
 // Create a new todo
 app.post("/api/todos", (req, res) => {
-  const { task, status, priority, categories } = req.body;
+  const { task, completed, createdAt } = req.body;
   const newTodo = {
     id: todos.length + 1,
     task,
-    status,
-    priority,
-    categories,
+    completed,
+    createdAt,
   };
   todos.push(newTodo);
   res.status(201).json(newTodo);
