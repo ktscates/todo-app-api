@@ -33,11 +33,11 @@ app.get("/api/todos/:id", (req, res) => {
 
 // Create a new todo
 app.post("/api/todos", (req, res) => {
-  const { task, completed, createdAt } = req.body;
+  const { task, status, createdAt } = req.body;
   const newTodo = {
     id: todos.length + 1,
     task,
-    completed,
+    status,
     createdAt,
   };
   todos.push(newTodo);
