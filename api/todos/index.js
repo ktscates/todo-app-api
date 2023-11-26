@@ -40,7 +40,20 @@ app.post("/api/todos", (req, res) => {
     important,
     createdAt,
   };
-  todos.push(newTodo);
+
+  // Find the index of the last important task
+  const lastImportantIndex = todos.findIndex((todo) => todo.important);
+
+  // If the new task is important, insert it just above the last important task
+  // Otherwise, insert it at the beginning of the array
+  todos = important
+    ? [
+        ...todos.slice(0, lastImportantIndex),
+        newTodo,
+        ...todos.slice(lastImportantIndex),
+      ]
+    : [newTodo, ...todos];
+
   res.status(201).json(newTodo);
 });
 
