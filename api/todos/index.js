@@ -15,7 +15,6 @@ app.get("/", (req, res) => {
 });
 
 // Get all todos
-// Enable CORS for specific route with specific options
 app.get("/api/todos", (req, res) => {
   console.log("Received GET request for /todos");
   res.json(todos);
