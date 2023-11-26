@@ -53,10 +53,20 @@ app.put("/api/todos/:id", (req, res) => {
   }
 
   const { task, status, important, createdAt } = req.body;
-  todos[todoIndex].task = task;
-  todos[todoIndex].status = status;
-  todos[todoIndex].important = important;
-  todos[todoIndex].createdAt = createdAt;
+
+  // Update only if the property is present in the request body
+  if (task !== undefined) {
+    todos[todoIndex].task = task;
+  }
+  if (status !== undefined) {
+    todos[todoIndex].status = status;
+  }
+  if (important !== undefined) {
+    todos[todoIndex].important = important;
+  }
+  if (createdAt !== undefined) {
+    todos[todoIndex].createdAt = createdAt;
+  }
 
   res.json(todos[todoIndex]);
 });
