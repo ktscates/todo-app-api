@@ -4,7 +4,7 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Enable CORS for all routes
-app.use(cors({ origin: "http://localhost:3000" }));
+app.use(cors({ origin: "https://thunderous-brigadeiros-4655df.netlify.app" }));
 
 app.use(express.json());
 
