@@ -7,3 +7,4 @@ This is a simple RESTful API for managing a todo list. The API provides endpoint
 - **Express:** A web application framework for Node.js.
 - **CORS:** Middleware for enabling Cross-Origin Resource Sharing.
 - **Node.js:** A JavaScript runtime for server-side development.
+- - **Glitch:** Deployment platform.
